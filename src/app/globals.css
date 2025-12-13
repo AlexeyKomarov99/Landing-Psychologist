@@ -1,7 +1,7 @@
+@import "tailwindcss"; 
+
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 :root {
@@ -10,8 +10,11 @@
   --color-text: #666666;
   --color-bg-main: #FFFFFF;
   --color-bg-secondary: #FAF9F7;
+  --color-bg-dark: #2A2A2A;
   
   --spacing-section: 80px;
+
+  /* --transition-slow: 0.3s ease-in-out; */
 }
 
 html {
@@ -23,6 +26,7 @@ body {
   color: var(--color-text);
   background: var(--color-bg-main);
   line-height: 1.4;
+  font-size: 16px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -33,13 +37,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn {
-  display: inline-block;
   background-color: var(--color-primary);
   color: var(--color-bg-main);
-  padding: 12px 20px;
+  /* padding: 12px 20px; */
   border-radius: 8px;
   font-family: var(--font-lora, 'Lora', serif);
   font-weight: 500;
   border: none;
   cursor: pointer;
+}
+.btn:hover {
+  background-color: rgba(196, 164, 132, 0.9);
 }
