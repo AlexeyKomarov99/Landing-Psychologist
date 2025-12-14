@@ -5,7 +5,6 @@ import { AiOutlineHourglass as HourglassIcon } from "react-icons/ai"
 import { HiOutlineUsers as UserGroup } from "react-icons/hi2"
 import { LuBookText as BookIcon } from "react-icons/lu"
 
-// Тип для статистики
 interface StatItem {
   id: number
   icon: React.ReactNode
@@ -14,25 +13,25 @@ interface StatItem {
 }
 
 export default function About() {
-    // Массив статистики
+
     const stats: StatItem[] = [
         {
-        id: 1,
-        icon: <HourglassIcon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-7 lg:h-7 2xl:w-9 2xl:h-9 text-white" />,
-        value: '10+',
-        label: 'лет практики'
+            id: 1,
+            icon: <HourglassIcon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-7 lg:h-7 2xl:w-9 2xl:h-9 text-white" />,
+            value: '10+',
+            label: 'лет практики'
         },
         {
-        id: 2,
-        icon: <UserGroup className="w-6 h-6 sm:w-8 sm:h-8 2xl:w-9 2xl:h-9 text-white" />,
-        value: '200+',
-        label: 'довольных клиентов'
+            id: 2,
+            icon: <UserGroup className="w-6 h-6 sm:w-8 sm:h-8 2xl:w-9 2xl:h-9 text-white" />,
+            value: '200+',
+            label: 'довольных клиентов'
         },
         {
-        id: 3,
-        icon: <BookIcon className="w-6 h-6 sm:w-8 sm:h-8 2xl:w-9 2xl:h-9 text-white" />,
-        value: '5+',
-        label: 'специализаций'
+            id: 3,
+            icon: <BookIcon className="w-6 h-6 sm:w-8 sm:h-8 2xl:w-9 2xl:h-9 text-white" />,
+            value: '5+',
+            label: 'специализаций'
         }
     ]
 
