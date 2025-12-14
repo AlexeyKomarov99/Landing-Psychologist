@@ -121,8 +121,8 @@ export default function Hero() {
                             <Image 
                                 src={'/images/banner_hero.png'}
                                 alt='Московский психолог'
-                                width={490}
-                                height={530}
+                                width={420}
+                                height={800}
                                 className="
                                     max-w-[300px] max-h-[540px]
                                     sm:max-w-[380px] sm:max-h-[700px]
