@@ -32,7 +32,16 @@ export default function Header() {
 
     return (
         <header className='fixed top-0 left-0 right-0 z-50 bg-(--color-bg-dark)'>
-            <div className='max-w-7xl mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px] 3xl:max-w-[1600px]'>
+            <div className='
+                max-w-7xl 
+                mx-auto 
+                sm:max-w-[540px] 
+                md:max-w-[720px] 
+                lg:max-w-[960px] 
+                xl:max-w-[1140px] 
+                2xl:max-w-[1320px] 
+                3xl:max-w-[1600px]'
+            >
                 <div className='flex justify-between items-center h-[60px] md:h-[70px] xl:h-20'>
 
                     {/* Логотип */}
