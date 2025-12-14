@@ -1,9 +1,9 @@
-import { BsLightning as LightningIcon } from "react-icons/bs"
-import { IoIosBatteryDead as BatteryIcon } from "react-icons/io"
-import { PiHeartBreak as HeartBreakIcon } from "react-icons/pi"
-import { GoLock as LockIcon } from "react-icons/go"
-import { PiScalesLight as ScalesIcon } from "react-icons/pi"
-import { PiSmileySad as SmileSadIcon } from "react-icons/pi"
+import { LuPuzzle as PuzzleIcon } from "react-icons/lu"
+import { BsShield as ShieldIcon } from "react-icons/bs"
+import { IoBulbOutline as BulbIcon } from "react-icons/io5"
+import { FaRegHeart as HeartIcon } from "react-icons/fa"
+import { LuHeartHandshake as HandshakeIcon } from "react-icons/lu"
+import { LuBrain as BrainIcon } from "react-icons/lu"
 
 interface DirectionCard {
     id: number
@@ -17,39 +17,39 @@ export default function Directions() {
     const directions: DirectionCard[] = [
         {
             id: 1,
-            icon: <LightningIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
-            title: 'Тревога и панические атаки',
-            descr: 'Помогаю понять, корни тревоги, обучаю техникам сомопомощи и использую когнитивно-поведенческую терапию (КПТ) для устойчивых изменений.'
+            icon: <PuzzleIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
+            title: 'Ментальная реструктуризация',
+            descr: 'Меняем автоматические негативные мысли на реалистичные и поддерживающие. Это фундаментальное изменение внутренней «архитектуры» вашего мышления.'
         },
         {
             id: 2,
-            icon: <BatteryIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
-            title: 'Выгорание на работе',
-            descr: 'Анализируем причины, восстанавливаем энергетический баланс, учимся выстраивать здоровые границы и возвращаем вкус к жизни.'
+            icon: <ShieldIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
+            title: 'Кризисы и стресс',
+            descr: 'Развиваем навыки ментального контроля. Обучаем техникам работы с тревогой, выгоранием и сложными жизненными периодами. Вы получаете инструменты для самопомощи, которые останутся навсегда.'
         },
         {
             id: 3,
-            icon: <HeartBreakIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
-            title: 'Кризисы в отношениях',
-            descr: 'Диагностирую конфликты, учу эмпатическому слушанию. помогаю восстановить взаимопонимание и гармонию в паре или с близкими.'
+            icon: <BulbIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
+            title: 'Развитие осознанности',
+            descr: 'Учим понимать свои истинные цели и мотивы, в том числе скрытые в бессознательном. Это ключ к принятию решений, которые будут вести вас по вашему собственному пути.'
         },
         {
             id: 4,
-            icon: <LockIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
-            title: 'Низкая самооценка',
-            descr: 'Работаем с внутренним критиком, укрепляем уверенность в себе, находим внутренние опоры и раскрываем потенциал.'
+            icon: <HeartIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
+            title: 'Эмоциональный интеллект',
+            descr: 'Формируем умение понимать, принимать и управлять своими эмоциями. Превращаем эмоции из источника хаоса в источник силы и ясности.'
         },
         {
             id: 5,
-            icon: <ScalesIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
-            title: 'Управление эмоциями',
-            descr: 'Научу распознавать причины эмоций, управлять их накалом и возвращать внутреннее равновесие.'
+            icon: <HandshakeIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
+            title: 'Коммуникации и отношения',
+            descr: 'Развиваем социальный интеллект — способность выстраивать эффективные и здоровые коммуникации в семье, на работе и с друзьями.'
         },
         {
             id: 6,
-            icon: <SmileSadIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
-            title: 'Последствия психической травмы',
-            descr: 'Создаю безопасное пространство для проработки травматического опыта, применения EMDR и другие эффективные методы для исцеления.'
+            icon: <BrainIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-white"/>,
+            title: 'Когнитивная гибкость',
+            descr: 'Учимся оценивать ситуацию с разных точек зрения и находить неочевидные, эффективные решения, выходя за рамки привычных шаблонов мышления.'
         },
 
     ]
@@ -86,7 +86,7 @@ export default function Directions() {
                         mb-10
                         md:mb-12 md:text-[32px]
                         lg:text-[38px]
-                    ">С какими просьбами ко мне обращаются?</h2>
+                    ">С какими задачами мы работаем?</h2>
                     <div className="
                         flex
                         flex-col
@@ -108,10 +108,11 @@ export default function Directions() {
                                     rounded-xl
                                     p-5
                                     shadow-sm
-                                    min-h-[250px]
+                                    min-h-[295px]
                                     max-w-[320px]
                                     sm:min-h-[290px] sm:max-w-[375px]
-                                    lg:min-h-[280px] lg:max-w-[400px]
+                                    md:min-h-[305px]
+                                    lg:min-h-[310px] lg:max-w-[400px]
                                     xl:min-h-80 xl:max-w-[400px]
                                     2xl:justify-center 2xl:max-w-none
                                 "

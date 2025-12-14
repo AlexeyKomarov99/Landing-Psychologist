@@ -18,7 +18,7 @@ export default function About() {
         {
             id: 1,
             icon: <HourglassIcon className="w-6 h-6 sm:w-8 sm:h-8 lg:w-7 lg:h-7 2xl:w-9 2xl:h-9 text-white" />,
-            value: '10+',
+            value: '15+',
             label: 'лет практики'
         },
         {
