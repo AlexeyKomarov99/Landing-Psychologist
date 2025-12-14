@@ -59,7 +59,7 @@ export default function Hero() {
                                 md:text-[32px] md:mt-120
                                 lg:text-[38px] lg:max-w-[520px] lg:mt-40 lg:text-start
                                 xl:text-[42px] xl:max-w-[600px] xl:mt-42
-                                2xl:text-[48px] 2xl:max-w-[680px] 2xl:mt-46
+                                2xl:text-[50px] 2xl:max-w-[680px] 2xl:mt-50
                                 3xl:text-[54px]
                             '>Ваш внутренний стержень — ваша главная опора</h1>
                             <span className='
@@ -70,7 +70,7 @@ export default function Hero() {
                                 leading-[1.4]
                                 lg:block lg:max-w-[480px] lg:mt-64
                                 xl:max-w-[520px] xl:mt-56
-                                2xl:max-w-[560px] 2xl:mt-22
+                                2xl:max-w-[560px] 2xl:mt-14
                             '>Сообщество и психологическая практика «Опора» помогают развить внутренний стержень и научиться справляться с любыми жизненными вызовами через ментальную реструктуризацию.</span>
                             <span className='
                                 hidden
@@ -98,7 +98,7 @@ export default function Hero() {
                                 md:px-20 md:py-3 md:mt-44
                                 lg:mt-10
                                 xl:mt-16
-                                2xl:mt-24 2xl:px-20 2xl:py-4
+                                2xl:mt-52 2xl:px-20 2xl:py-4
                             '>
                                 <span>Записаться</span>
                                 <PhoneIcon className='w-5 h-5' />
@@ -121,7 +121,7 @@ export default function Hero() {
                             <Image 
                                 src={'/images/banner_hero.png'}
                                 alt='Московский психолог'
-                                width={420}
+                                width={440}
                                 height={800}
                                 className="
                                     max-w-[300px] max-h-[540px]
@@ -129,7 +129,7 @@ export default function Hero() {
                                     md:max-w-[415px] md:max-h-[760px]
                                     lg:max-w-[400px] lg:max-h-[720px]
                                     xl:max-w-[415px] xl:max-h-[780px]
-                                    2xl:max-w-[420px] 2xl:max-h-[800px]
+                                    2xl:max-w-[440px] 2xl:max-h-[800px]
                                 "
                             />
                         </div>
