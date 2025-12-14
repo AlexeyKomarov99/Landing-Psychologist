@@ -25,10 +25,10 @@ export default function Hero() {
             {/* Внутренний контент */}
             <div className="relative z-30 w-full">
                 <div className="
+                    max-w-7xl
                     mx-auto
                     min-h-[80vh]
-                    px-4
-                    sm:min-h-[90vh] sm:max-w-[540px] sm:px-6
+                    sm:min-h-[90vh] sm:max-w-[540px]
                     md:min-h-screen
                     lg:max-w-[960px]
                     xl:max-w-[1140px]
@@ -55,10 +55,10 @@ export default function Hero() {
                                 text-white!
                                 font-semibold
                                 leading-[1.2]
-                                sm:text-[30px] sm:text-center sm:max-w-[520px] sm:mt-118
-                                md:text-[32px] md:mt-135
-                                lg:text-[38px] lg:max-w-[520px] lg:mt-34 lg:text-start
-                                xl:text-[42px] xl:max-w-[600px] xl:mt-38
+                                sm:text-[30px] sm:text-center sm:max-w-[520px] sm:mt-110
+                                md:text-[32px] md:mt-120
+                                lg:text-[38px] lg:max-w-[520px] lg:mt-40 lg:text-start
+                                xl:text-[42px] xl:max-w-[600px] xl:mt-42
                                 2xl:text-[48px] 2xl:max-w-[680px] 2xl:mt-46
                                 3xl:text-[54px]
                             '>Ваш внутренний стержень — ваша главная опора</h1>
@@ -68,8 +68,8 @@ export default function Hero() {
                                 text-white!
                                 font-normal
                                 leading-[1.4]
-                                lg:block lg:max-w-[480px] lg:mt-38
-                                xl:max-w-[520px] xl:mt-26
+                                lg:block lg:max-w-[480px] lg:mt-64
+                                xl:max-w-[520px] xl:mt-56
                                 2xl:max-w-[560px] 2xl:mt-22
                             '>Сообщество и психологическая практика «Опора» помогают развить внутренний стержень и научиться справляться с любыми жизненными вызовами через ментальную реструктуризацию.</span>
                             <span className='
@@ -81,6 +81,7 @@ export default function Hero() {
                                 lg:block lg:mt-2
                                 2xl:mt-3
                             '>Адаптируйтесь, меняйтесь, улучшайтесь!</span>
+
                             <button className='
                                 btn
                                 text-center
@@ -94,7 +95,7 @@ export default function Hero() {
                                 duration-300
                                 text-base
                                 sm:mt-[140px] sm:text-lg
-                                md:px-16 md:py-3 md:mt-44
+                                md:px-20 md:py-3 md:mt-44
                                 lg:mt-10
                                 xl:mt-16
                                 2xl:mt-24 2xl:px-20 2xl:py-4
@@ -113,10 +114,9 @@ export default function Hero() {
                             z-10
                             flex
                             justify-center
-
-                            lg:flex lg:justify-end lg:mr-26 lg:items-center
+                            lg:flex lg:justify-end lg:mr-20 lg:items-center
                             xl:mr-28
-                            2xl:mr-50
+                            2xl:mr-60
                         ">
                             <Image 
                                 src={'/images/banner_hero.png'}
@@ -125,11 +125,13 @@ export default function Hero() {
                                 height={530}
                                 className="
                                     max-w-[300px] max-h-[540px]
-                                    sm:max-w-[400px] sm:max-h-[720px]
-                                    md:max-w-[430px] md:max-h-[760px]
-                                    xl:max-w-[460px] xl:max-h-[780px]
-                                    2xl:max-w-[500px] 2xl:max-h-[840px]
-                            "/>
+                                    sm:max-w-[380px] sm:max-h-[700px]
+                                    md:max-w-[415px] md:max-h-[760px]
+                                    lg:max-w-[400px] lg:max-h-[720px]
+                                    xl:max-w-[415px] xl:max-h-[780px]
+                                    2xl:max-w-[420px] 2xl:max-h-[800px]
+                                "
+                            />
                         </div>
                     </div>
                 </div>
