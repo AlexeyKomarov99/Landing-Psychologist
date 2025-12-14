@@ -36,7 +36,7 @@ export default function StagesWork() {
     
     return (
         <section
-            id="#stages-work"
+            id="stages-work"
             className="
                 py-10
                 bg-(--color-bg-secondary)

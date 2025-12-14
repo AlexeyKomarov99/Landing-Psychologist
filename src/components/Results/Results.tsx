@@ -55,7 +55,7 @@ export default function Results() {
 
     return (
         <section
-            id="directions"
+            id="results"
             className="
                 py-10
                 bg-(--color-bg-main)

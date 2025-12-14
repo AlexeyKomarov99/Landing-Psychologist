@@ -15,7 +15,7 @@ const navLinks : NavLink[] = [
     { id: 1, label: 'Обо мне', href: '#about' },
     { id: 2, label: 'Направления', href: '#directions' },
     { id: 3, label: 'Этапы работы', href: '#stages-work' },
-    { id: 4, label: 'Ваш результат', href: '#results' },
+    { id: 4, label: 'Наши результаты', href: '#results' },
     { id: 5, label: 'FAQ', href: '#faq' },
 ]
 
