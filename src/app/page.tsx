@@ -5,6 +5,7 @@ import Directions from "@/components/Directions/Directions"
 import Results from "@/components/Results/Results"
 import StagesWork from "@/components/StagesWork/StagesWork"
 import FAQ from "@/components/FAQ/FAQ"
+import ConsultationForm from "@/components/ConsultationForm/ConsultationForm"
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <Results />
       <StagesWork />
       <FAQ />
+      <ConsultationForm />
     </>
-
   )
 }
