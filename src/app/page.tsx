@@ -6,6 +6,7 @@ import Results from "@/components/Results/Results"
 import StagesWork from "@/components/StagesWork/StagesWork"
 import FAQ from "@/components/FAQ/FAQ"
 import ConsultationForm from "@/components/ConsultationForm/ConsultationForm"
+import Footer from "@/components/Footer/Footer"
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <StagesWork />
       <FAQ />
       <ConsultationForm />
+      <Footer />
     </>
   )
 }
