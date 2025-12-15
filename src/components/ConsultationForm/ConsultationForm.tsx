@@ -1,22 +1,22 @@
 'use client'
 
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { consultationFormSchema, ConsultationFormData } from '@/lib/schemas/consultation-form'
 import FormCheckbox from '../Form/FormCheckbox'
 import SubmitButton from '../Form/SubmitButton'
-
-import { usePhoneMask } from '@/hooks/usePhoneMask'
-import { FaPhoneAlt } from 'react-icons/fa'
+import { IMaskInput } from 'react-imask'
 
 export default function ConsultationForm() {
     
-    const { phone, handlePhoneChange, setPhone } = usePhoneMask()
+    const [phoneInput, setPhoneInput] = useState('')
   
     const {
         register,
         handleSubmit,
         setValue,
+        trigger,
         formState: { errors, isSubmitting },
         reset
     } = useForm<ConsultationFormData>({
@@ -27,7 +27,18 @@ export default function ConsultationForm() {
         console.log('Данные формы:', data)
         // Отправка на сервер...
         reset()
-        setPhone('+7 (___) ___-__-__')
+        setPhoneInput('')
+    }
+
+    const handlePhoneChange = (value: string) => {
+        setPhoneInput(value)
+        setValue('phone', value, { shouldValidate: false }) // Сначала не валидируем
+        
+        // Валидируем только если введено достаточно символов
+        if (value.replace(/\D/g, '').length >= 10) {
+            setValue('phone', value, { shouldValidate: true })
+            trigger('phone')
+        }
     }
 
     return (
@@ -62,6 +73,7 @@ export default function ConsultationForm() {
                         flex-col
                         items-center
                         justify-center
+                        mb-10
                     ">
                         <h2 className="
                             text-[26px]
@@ -75,53 +87,146 @@ export default function ConsultationForm() {
                     </div>
 
                     {/* Форма обратной связи */}
-                    <div className="mt-10 w-full max-w-md md:max-w-lg lg:max-w-2xl">
+                    <div className="
+                        w-full
+                        max-w-md
+                        md:max-w-lg 
+                        lg:max-w-2xl
+                    ">
                         <form 
                             onSubmit={handleSubmit(onSubmit)} 
-                            className="bg-(--color-bg-main) rounded-2xl shadow-lg p-6 md:p-8 lg:p-10"
+                            className="
+                                bg-(--color-bg-main) 
+                                rounded-2xl 
+                                shadow-lg 
+                                p-6 
+                                md:p-8 
+                                lg:p-10"
                         >
                             {/* Имя и фамилия */}
                             <div className="mb-6">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Имя и фамилия *
-                            </label>
-                            <input
-                                {...register('name')}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C4A484] focus:border-transparent outline-none transition"
-                                placeholder="Иван Иванов"
-                            />
-                            {errors.name && (
-                                <p className="mt-1 text-sm text-red-600">{errors.name.message}</p>
-                            )}
+                                <label className="
+                                    block 
+                                    text-sm 
+                                    font-medium
+                                    text-(--color-title)
+                                    mb-2
+                                ">
+                                    Имя и фамилия *
+                                </label>
+                                <input
+                                    {...register('name')}
+                                    className="
+                                        w-full 
+                                        px-4 
+                                        py-3 
+                                        border 
+                                        border-gray-300 
+                                        rounded-lg 
+                                        focus:ring-2 
+                                        focus:ring-[#C4A484] 
+                                        focus:border-transparent 
+                                        outline-none 
+                                        transition
+                                        cursor-pointer"
+                                    placeholder="Иван Иванов"
+                                />
+                                {errors.name && (
+                                    <p className="
+                                        mt-1 
+                                        text-sm 
+                                        text-red-600
+                                    ">{errors.name.message}</p>
+                                )}
                             </div>
 
                             {/* Телефон с маской */}
+                            {/* <div className="mb-6">
+                                <label className="
+                                    block 
+                                    text-sm 
+                                    font-medium 
+                                    text-(--color-title) 
+                                    mb-2">
+                                    Телефон *
+                                </label>
+                                <input
+                                    ref={inputRef}
+                                    type="text"
+                                    value={phone}
+                                    onChange={handlePhoneChange}
+                                    onKeyDown={handlePhoneKeyDown}
+                                    onFocus={handlePhoneFocus}
+                                    placeholder="+7 (___) ___-__-__"
+                                    className="
+                                        w-full 
+                                        px-4 
+                                        py-3 
+                                        border 
+                                        border-gray-300 
+                                        rounded-lg 
+                                        focus:ring-2 
+                                        focus:ring-[#C4A484] 
+                                        focus:border-transparent 
+                                        outline-none 
+                                        transition 
+                                        font-mono
+                                        cursor-pointer
+                                    "
+                                />
+                                {errors.phone && (
+                                    <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                                )}
+                            </div> */}
+
+                            {/* Телефон с маской */}
                             <div className="mb-6">
-                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                Телефон *
-                            </label>
-                            <input
-                                value={phone}
-                                onChange={(e) => {
-                                handlePhoneChange(e)
-                                setValue('phone', e.target.value.replace(/_/g, ''), {
-                                    shouldValidate: true
-                                })
-                                }}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#C4A484] focus:border-transparent outline-none transition font-mono"
-                            />
-                            {errors.phone && (
-                                <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
-                            )}
+                                <label className="
+                                    block 
+                                    text-sm 
+                                    font-medium 
+                                    text-(--color-title) 
+                                    mb-2">
+                                    Телефон *
+                                </label>
+                                <IMaskInput
+                                    mask="+7 (000) 000-00-00"
+                                    definitions={{
+                                        '0': /[0-9]/
+                                    }}
+                                    value={phoneInput}
+                                    onAccept={(value: string) => {
+                                        handlePhoneChange(value)
+                                    }}
+                                    placeholder="+7 (___) ___-__-__"
+                                    className="
+                                        w-full 
+                                        px-4 
+                                        py-3 
+                                        border 
+                                        border-gray-300 
+                                        rounded-lg 
+                                        focus:ring-2 
+                                        focus:ring-[#C4A484] 
+                                        focus:border-transparent 
+                                        outline-none 
+                                        transition 
+                                        font-mono
+                                        cursor-pointer
+                                    "
+                                />
+                                {errors.phone && phoneInput.length > 0 && (
+                                    <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                                )}
                             </div>
 
                             {/* Checkbox согласия */}
                             <div className="mb-8">
-                            <FormCheckbox
-                                label="Я соглашаюсь на обработку моих персональных данных в соответствии с политикой конфиденциальности"
-                                register={register('agreement')}
-                                error={errors.agreement}
-                            />
+                                <FormCheckbox
+                                    label="Я соглашаюсь на обработку моих персональных данных в соответствии с политикой конфиденциальности"
+                                    register={register('agreement')}
+                                    error={errors.agreement}
+                                />
                             </div>
 
                             {/* Кнопка */}

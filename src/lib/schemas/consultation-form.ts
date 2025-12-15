@@ -5,8 +5,14 @@ export const consultationFormSchema = z.object({
         .min(2, 'Имя должно содержать минимум 2 символа')
         .max(50, 'Имя слишком длинное'),
     phone: z.string()
-        .min(18, 'Введите корректный номер телефона') // +7 (999) 123-45-67 = 18 символов
-        .regex(/^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/, 'Формат: +7 (999) 123-45-67'),
+  .min(1, 'Телефон обязателен')
+  .refine((value) => {
+    // Проверяем что введено хотя бы 10 цифр
+    const digits = value.replace(/\D/g, '')
+    return digits.length >= 10
+  }, {
+    message: 'Введите минимум 10 цифр'
+  }),
     agreement: z.boolean().refine(val => val === true, {
         message: 'Необходимо согласие на обработку данных'
     })
