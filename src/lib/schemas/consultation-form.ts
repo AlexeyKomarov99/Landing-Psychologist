@@ -3,7 +3,10 @@ import * as z from 'zod'
 export const consultationFormSchema = z.object({
     name: z.string()
         .min(2, 'Имя должно содержать минимум 2 символа')
-        .max(50, 'Имя слишком длинное'),
+        .max(50, 'Имя слишком длинное')
+        .refine(value => /^[A-Za-zА-Яа-яЁё\s\-]+$/.test(value), {
+            message: 'Имя должно содержать только буквы'
+        }),
     phone: z.string()
   .min(1, 'Телефон обязателен')
   .refine((value) => {

@@ -1,3 +1,12 @@
+'use client'
+
+import { motion } from 'framer-motion'
+import { 
+  fadeInTop, 
+  cardVariants,
+  staggerContainer,
+  hoverScale 
+} from '@/lib/animations/variants'
 import { LuPuzzle as PuzzleIcon } from "react-icons/lu"
 import { BsShield as ShieldIcon } from "react-icons/bs"
 import { IoBulbOutline as BulbIcon } from "react-icons/io5"
@@ -55,13 +64,18 @@ export default function Directions() {
     ]
 
     return (
-        <section
+        <motion.section
             id="directions"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
             className="
                 py-10
                 bg-(--color-bg-secondary)
                 md:py-15
                 lg:py-20
+                scroll-mt-10
             "
         >
             <div className="
@@ -80,25 +94,40 @@ export default function Directions() {
                     justify-center
                     items-center
                 ">
-                    <h2 className="
-                        text-[26px]
-                        text-center
-                        mb-10
-                        md:mb-12 md:text-[32px]
-                        lg:text-[38px]
-                    ">С какими задачами мы работаем?</h2>
-                    <div className="
-                        flex
-                        flex-col
-                        items-center
-                        justify-center
-                        space-y-5
-                        md:grid md:grid-cols-2 md:gap-4 md:space-y-0
-                        2xl:grid-cols-3 2xl:gap-5 2xl:w-full
-                    ">
-                        {directions.map((card) => (
-                            <div
+                    <motion.h2 
+                        variants={fadeInTop}
+                        className="
+                            text-[26px]
+                            text-center
+                            mb-10
+                            md:mb-12 md:text-[32px]
+                            lg:text-[38px]
+                        "
+                    >
+                        С какими задачами мы работаем?
+                    </motion.h2>
+                    
+                    <motion.div 
+                        variants={staggerContainer}
+                        className="
+                            flex
+                            flex-col
+                            items-center
+                            justify-center
+                            space-y-5
+                            md:grid md:grid-cols-2 md:gap-4 md:space-y-0
+                            2xl:grid-cols-3 2xl:gap-5 2xl:w-full
+                        "
+                    >
+                        {directions.map((card, index) => (
+                            <motion.div
                                 key={card.id}
+                                variants={cardVariants}
+                                custom={index}
+                                whileHover={{ 
+                                    scale: 1.03,
+                                    transition: { duration: 0.2 }
+                                }}
                                 className="
                                     flex
                                     flex-col
@@ -117,34 +146,49 @@ export default function Directions() {
                                     2xl:justify-center 2xl:max-w-none
                                 "
                             >
-                                <div className="
-                                    w-12
-                                    h-12
-                                    flex
-                                    justify-center
-                                    items-center
-                                    bg-(--color-primary)
-                                    rounded-[10000px]
-                                    mb-4
-                                    sm:w-14 sm:h-14
-                                    lg:w-16 lg:h-16
-                                    2xl:w-14 2xl:h-14
-                                ">{card.icon}</div>
-                                <h4 className="
-                                    text-center
-                                    mb-3
-                                    sm:text-lg
-                                    lg:text-[21px]
-                                ">{card.title}</h4>
-                                <span className="
+                                <motion.div 
+                                    whileHover={{ scale: 1.1 }}
+                                    transition={{ duration: 0.2 }}
+                                    className="
+                                        w-12
+                                        h-12
+                                        flex
+                                        justify-center
+                                        items-center
+                                        bg-(--color-primary)
+                                        rounded-[10000px]
+                                        mb-4
+                                        sm:w-14 sm:h-14
+                                        lg:w-16 lg:h-16
+                                        2xl:w-14 2xl:h-14
+                                    "
+                                >
+                                    {card.icon}
+                                </motion.div>
+                                
+                                <motion.h4 
+                                    transition={{ duration: 0.2 }}
+                                    className="
+                                        text-center
+                                        mb-3
+                                        sm:text-lg
+                                        lg:text-[21px]
+                                    "
+                                >
+                                    {card.title}
+                                </motion.h4>
+                                
+                                <motion.span className="
                                     text-center
                                     lg:text-[17px]
-                                ">{card.descr}</span>
-                            </div>
+                                ">
+                                    {card.descr}
+                                </motion.span>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

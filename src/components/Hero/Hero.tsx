@@ -12,12 +12,12 @@ export default function Hero() {
             {/* Фон баннера с блюром */}
             <div className='absolute inset-0 z-0'>
                 <Image 
-                    src={'/images/bg-books.png'}
+                    src={'/images/bg-books.jpg'}
                     alt='Фоновое изображение'
                     fill
                     className="object-cover"
-                    priority
-                    quality={85}
+                    priority={true}
+                    quality={100}
                 />
                 <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
             </div>
@@ -46,6 +46,8 @@ export default function Hero() {
                             justify-center 
                             relative 
                             z-30
+                            m-auto
+                            sm:m-0
                             lg:justify-start lg:items-start
                         ">
                             <h1 className='
@@ -55,6 +57,7 @@ export default function Hero() {
                                 text-white!
                                 font-semibold
                                 leading-[1.2]
+                                max-w-[450px]
                                 sm:text-[30px] sm:text-center sm:max-w-[520px] sm:mt-110
                                 md:text-[32px] md:mt-120
                                 lg:text-[38px] lg:max-w-[520px] lg:mt-40 lg:text-start
@@ -82,27 +85,29 @@ export default function Hero() {
                                 2xl:mt-3
                             '>Адаптируйтесь, меняйтесь, улучшайтесь!</span>
 
-                            <button className='
-                                btn
-                                text-center
-                                mt-28
-                                px-20 
-                                py-4 
-                                flex
-                                items-center
-                                space-x-3 
-                                hover:bg-primary/90 
-                                duration-300
-                                text-base
-                                sm:mt-[140px] sm:text-lg
-                                md:px-20 md:py-3 md:mt-44
-                                lg:mt-10
-                                xl:mt-16
-                                2xl:mt-52 2xl:px-20 2xl:py-4
+                            <a
+                                href='#consultation'
+                                className='
+                                    btn
+                                    text-center
+                                    mt-28
+                                    px-20 
+                                    py-4 
+                                    flex
+                                    items-center
+                                    space-x-3 
+                                    hover:brightness-90!
+                                    duration-300
+                                    text-base
+                                    sm:mt-[140px] sm:text-lg
+                                    md:px-20 md:py-3 md:mt-44
+                                    lg:mt-10
+                                    xl:mt-16
+                                    2xl:mt-52 2xl:px-20 2xl:py-4
                             '>
                                 <span>Записаться</span>
                                 <PhoneIcon className='w-5 h-5' />
-                            </button>
+                            </a>
                         </div>
 
                         {/* Фотография психолога справа */}
@@ -119,10 +124,12 @@ export default function Hero() {
                             2xl:mr-60
                         ">
                             <Image 
-                                src={'/images/banner_hero.png'}
+                                src={'/images/banner_hero.avif'}
                                 alt='Московский психолог'
                                 width={440}
                                 height={800}
+                                priority={true}
+                                quality={100}
                                 className="
                                     max-w-[300px] max-h-[540px]
                                     sm:max-w-[380px] sm:max-h-[700px]
@@ -131,6 +138,8 @@ export default function Hero() {
                                     xl:max-w-[415px] xl:max-h-[780px]
                                     2xl:max-w-[440px] 2xl:max-h-[800px]
                                 "
+                                style={{ width: 'auto', height: 'auto' }}
+
                             />
                         </div>
                     </div>

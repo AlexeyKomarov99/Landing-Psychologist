@@ -108,12 +108,14 @@ export default function Footer() {
                             flex
                             flex-col
                         ">
-                            <div className="
-                                flex
-                                flex-row
-                                items-center
-                                mb-4
-                                md:-mt-2.5
+                            <a
+                                href='#hero'
+                                className="
+                                    flex
+                                    flex-row
+                                    items-center
+                                    mb-4
+                                    md:-mt-2.5
                             ">
                                 <Image
                                     src='/icons/label.png'
@@ -131,7 +133,7 @@ export default function Footer() {
                                 '>
                                     Опора
                                 </h4>
-                            </div>
+                            </a>
                             <span className='
                                 text-white!
                                 opacity-65

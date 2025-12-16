@@ -2,6 +2,11 @@
 import { useState } from 'react'
 import { IoIosArrowForward as ArrowRightIcon } from "react-icons/io"
 import { motion, AnimatePresence } from 'framer-motion'
+import { 
+  fadeInTop, 
+  fadeInLeft,
+  staggerContainer 
+} from '@/lib/animations/variants'
 
 interface FAQItem {
     id: number
@@ -64,13 +69,18 @@ export default function FAQ() {
     ]
 
     return (
-        <section
+        <motion.section
             id="faq"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
             className="
                 py-10
                 bg-(--color-bg-main)
                 md:py-15
                 lg:py-20
+                scroll-mt-10
             "
         >
             <div className="
@@ -89,28 +99,38 @@ export default function FAQ() {
                     justify-center
                     items-center
                 ">
-                    <h2 className="
-                        text-[26px]
-                        text-center
-                        mb-10
-                        md:mb-12 md:text-[32px]
-                        lg:text-[38px]
-                    ">Ответы на часто задаваемые вопросы</h2>
+                    <motion.h2 
+                        variants={fadeInTop}
+                        className="
+                            text-[26px]
+                            text-center
+                            mb-10
+                            md:mb-12 md:text-[32px]
+                            lg:text-[38px]
+                        "
+                    >
+                        Ответы на часто задаваемые вопросы
+                    </motion.h2>
                     
-                    <div className="
-                        flex
-                        flex-col
-                        items-center
-                        justify-center
-                        space-y-4
-                        w-full
-                    ">
-                        {questions.map((question) => {
+                    <motion.div 
+                        variants={staggerContainer}
+                        className="
+                            flex
+                            flex-col
+                            items-center
+                            justify-center
+                            space-y-4
+                            w-full
+                        "
+                    >
+                        {questions.map((question, index) => {
                             const isOpen = openItems.includes(question.id)
                             
                             return (
-                                <div 
+                                <motion.div 
                                     key={question.id}
+                                    variants={fadeInLeft}
+                                    transition={{ delay: index * 0.1 }}
                                     className="
                                         w-full
                                         rounded-xl
@@ -211,12 +231,12 @@ export default function FAQ() {
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
-                                </div>
+                                </motion.div>
                             )
                         })}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     )
 }

@@ -46,6 +46,3 @@ h1, h2, h3, h4, h5, h6 {
   border: none;
   cursor: pointer;
 }
-.btn:hover {
-  background-color: rgba(196, 164, 132, 0.9);
-}

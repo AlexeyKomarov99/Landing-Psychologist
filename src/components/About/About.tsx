@@ -1,5 +1,12 @@
 'use client'
 
+import { motion } from 'framer-motion'
+import { 
+  fadeInLeft, 
+  fadeInRight, 
+  fadeInTop, 
+  staggerContainer,
+} from '@/lib/animations/variants'
 import Image from 'next/image'
 import { AiOutlineHourglass as HourglassIcon } from "react-icons/ai"
 import { HiOutlineUsers as UserGroup } from "react-icons/hi2"
@@ -36,13 +43,18 @@ export default function About() {
     ]
 
     return (
-        <section
+        <motion.section
             id="about"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={staggerContainer}
             className='
                 py-10
                 bg-(--color-bg-main)
                 md:py-15
                 lg:py-20
+                scroll-mt-10                
             '>
                 <div className="
                     max-w-7xl
@@ -63,13 +75,16 @@ export default function About() {
                         2xl:space-x-24
                     ">
                         {/* Левая часть */}
-                        <div className="
-                            flex
-                            flex-col
-                            justify-center
-                            items-center
-                            lg:flex-row lg:justify-start lg:items-start
-                        ">
+                        <motion.div
+                            variants={fadeInLeft}
+                            className="
+                                flex
+                                flex-col
+                                justify-center
+                                items-center
+                                lg:flex-row lg:justify-start lg:items-start
+                            "
+                        >
                             <h2 className='
                                 text-[26px]
                                 text-center
@@ -82,6 +97,8 @@ export default function About() {
                                 alt='Психолог Москва'
                                 width={420}
                                 height={580}
+                                loading="lazy"
+                                quality={100}
                                 className='
                                     rounded-2xl
                                     mb-4
@@ -91,15 +108,17 @@ export default function About() {
                                     lg:max-w-[360px] lg:max-h-[520px]
                                     2xl:max-w-[420px] 2xl:max-h-[580px]
                             '/>
-                        </div>
+                        </motion.div>
                          
                         {/* Правая часть */}
-                        <div className="
-                            flex
-                            flex-col
-                            justify-center
-                            items-center
-                            lg:justify-start lg:items-start
+                        <motion.div
+                            variants={fadeInRight}
+                            className="
+                                flex
+                                flex-col
+                                justify-center
+                                items-center
+                                lg:justify-start lg:items-start
                         ">
                             <h2 className='
                                 hidden
@@ -127,15 +146,20 @@ export default function About() {
                             '>
                                 Мы рождаемся, не зная правил работы собственного сознания. Жизненный опыт формирует нас, но часто не оставляет в руках нужных инструментов для решения сложных задач. Я помогаю не просто «решить проблему», а исследовать архитектуру вашего мышления, чтобы вы смогли самостоятельно выстраивать свою жизнь — осознанно, гибко и устойчиво. Ваша психика — ваш главный ресурс. Научимся им пользоваться.»
                             </span>
-                            <div 
+                            <motion.div
+                                variants={staggerContainer}
+                                initial="hidden"
+                                whileInView="visible"
+                                viewport={{ once: true }} 
                                 className="
                                     space-y-8
                                     sm:grid sm:grid-cols-3 sm:space-y-0 sm:gap-8 sm:items-start
                                     lg:gap-12
                             ">
                                 {stats.map((stat) => (
-                                    <div 
+                                    <motion.div 
                                         key={stat.id}
+                                        variants={fadeInTop}
                                         className="
                                             flex
                                             flex-col
@@ -171,14 +195,14 @@ export default function About() {
                                                     lg:text-[19px]
                                                 '>{stat.label}</span>
                                             </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
-                            </div>
-                        </div>
+                            </motion.div>
+                        </motion.div>
 
                     </div>
                 </div>
 
-        </section>
+        </motion.section>
     )
 }

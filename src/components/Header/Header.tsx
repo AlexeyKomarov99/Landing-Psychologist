@@ -31,11 +31,19 @@ export default function Header() {
     }
 
     return (
-        <header className='fixed top-0 left-0 right-0 z-50 bg-(--color-bg-dark)'>
+        <header className='
+            fixed 
+            top-0 
+            left-0 
+            right-0 
+            z-50 
+            bg-(--color-bg-dark)
+            '>
             <div className='
                 max-w-7xl 
-                mx-auto 
-                sm:max-w-[540px] 
+                mx-auto
+                px-4
+                sm:max-w-[540px] sm:px-0
                 md:max-w-[720px] 
                 lg:max-w-[960px] 
                 xl:max-w-[1140px] 
@@ -45,7 +53,13 @@ export default function Header() {
                 <div className='flex justify-between items-center h-[60px] md:h-[70px] xl:h-20'>
 
                     {/* Логотип */}
-                    <div className='flex items-center'>
+                    <a
+                        href='#hero' 
+                        className='
+                            flex 
+                            items-center
+                            cursor-pointer
+                    '>
                         <Image 
                             src="/icons/label.png" width={48} height={48} 
                             alt='Главная иконка'
@@ -58,7 +72,7 @@ export default function Header() {
                             md:inline md:text-[17px]
                             lg:text-lg
                         '>«Опора»</span>
-                    </div>
+                    </a>
                     
                     {/* Десктопная навигация */}
                     <nav className='
@@ -78,17 +92,19 @@ export default function Header() {
                     </nav>
                     
                     {/* Десктопная кнопка */}
-                    <button className="
-                        hidden 
-                        md:flex md:items-center md:space-x-2 md:text-sm md:px-3 md:py-2
-                        lg:text-sm lg:px-5 lg:py-3
-                        btn
-                        hover:bg-primary/90 
-                        duration-300
+                    <a
+                        href='#consultation' 
+                        className="
+                            hidden 
+                            md:flex md:items-center md:space-x-2 md:text-sm md:px-3 md:py-2
+                            lg:text-sm lg:px-5 lg:py-3
+                            btn
+                            hover:brightness-90!
+                            duration-300
                     ">
                         <span>Записаться</span>
                         <PhoneIcon className='w-5 h-5 lg:w-4 lg:h-4 md:w-3.5 md:h-3.5' />
-                    </button>
+                    </a>
                     
                     {/* Кнопка бургера */}
                     <button
@@ -125,7 +141,9 @@ export default function Header() {
                             top-6 
                             right-6 
                             text-white 
-                            p-2"
+                            p-2
+                            cursor-pointer
+                        "
                     >
                         <CrossIcon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
@@ -161,7 +179,8 @@ export default function Header() {
                     </nav>
 
                     {/* Кнопка в мобильном меню */}
-                    <button 
+                    <a
+                        href='#consultation'
                         onClick={closeMobileMenu}
                         className='
                             mt-12
@@ -173,7 +192,7 @@ export default function Header() {
                             px-8 
                             py-3 
                             rounded-lg 
-                            hover:bg-[#C4A484]/90 
+                            hover:brightness-90!
                             transition-all 
                             duration-300 
                             text-base
@@ -182,7 +201,7 @@ export default function Header() {
                     >
                         <span>Записаться</span>
                         <PhoneIcon className='w-4 h-4 sm:w-5 sm:h-5' />
-                    </button>
+                    </a>
 
                 </div>
             </div>

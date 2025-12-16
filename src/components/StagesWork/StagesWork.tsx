@@ -1,4 +1,13 @@
-interface StahesWorkCard {
+'use client'
+
+import { motion } from 'framer-motion'
+import { 
+  fadeInTop, 
+  staggerContainer,
+  fadeInLeft
+} from '@/lib/animations/variants'
+
+interface StagesWorkCard {
     id: number
     number: string
     title: string
@@ -7,7 +16,7 @@ interface StahesWorkCard {
 
 export default function StagesWork() {
     
-    const stages: StahesWorkCard[] = [
+    const stages: StagesWorkCard[] = [
         {
             id: 1,
             number: '01',
@@ -35,13 +44,18 @@ export default function StagesWork() {
     ]
     
     return (
-        <section
+        <motion.section
             id="stages-work"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+            variants={staggerContainer}
             className="
                 py-10
                 bg-(--color-bg-secondary)
                 md:py-15
                 lg:py-20
+                scroll-mt-10
             "
         >
             <div className="
@@ -60,26 +74,35 @@ export default function StagesWork() {
                     justify-start
                     items-center
                 ">
-                    <h2 className="
-                        text-[26px]
-                        text-center
-                        mb-10
-                        md:mb-12 md:text-[32px]
-                        lg:text-[38px]
-                    ">
+                    <motion.h2 
+                        variants={fadeInTop}
+                        className="
+                            text-[26px]
+                            text-center
+                            mb-10
+                            md:mb-12 md:text-[32px]
+                            lg:text-[38px]
+                        "
+                    >
                         Путь к устойчивым изменениям
-                    </h2>
-                    <div className="
-                        flex
-                        flex-col
-                        items-center
-                        justify-center
-                        space-y-5
-                        md:items-start md:justify-start md:w-full
-                    ">
-                        {stages.map((stage) => (
-                            <div
+                    </motion.h2>
+                    
+                    <motion.div 
+                        variants={staggerContainer}
+                        className="
+                            flex
+                            flex-col
+                            items-center
+                            justify-center
+                            space-y-5
+                            md:items-start md:justify-start md:w-full
+                        "
+                    >
+                        {stages.map((stage, index) => (
+                            <motion.div
                                 key={stage.id}
+                                variants={fadeInLeft}
+                                transition={{ delay: index * 0.15 }}
                                 className="
                                     flex
                                     flex-col
@@ -97,17 +120,22 @@ export default function StagesWork() {
                                     2xl:px-6 2xl:py-6
                                 "
                             >
-                                <span className="
-                                    text-(--color-primary)
-                                    font-bold
-                                    text-[40px]
-                                    tracking-[-0.05em]
-                                    mb-4
-                                    md:text-[60px] md:flex md:items-start md:justify-start md:text-start md:mb-0
-                                    xl:text-[64px]
-                                    2xl:text-[68px]
-                                "
-                                style={{ fontFamily: 'var(--font-lora)' }}>{stage.number}</span>
+                                <span 
+                                    className="
+                                        text-(--color-primary)
+                                        font-bold
+                                        text-[40px]
+                                        tracking-[-0.05em]
+                                        mb-4
+                                        md:text-[60px] md:flex md:items-start md:justify-start md:text-start md:mb-0
+                                        xl:text-[64px]
+                                        2xl:text-[68px]
+                                    "
+                                    style={{ fontFamily: 'var(--font-lora)' }}
+                                >
+                                    {stage.number}
+                                </span>
+                                
                                 <div>
                                     <h4 className="
                                         font-bold
@@ -116,17 +144,22 @@ export default function StagesWork() {
                                         md:text-xl md:font-semibold md:mt-4
                                         lg:text-[21px]
                                         2xl:text-[22px]
-                                    ">{stage.title}</h4>
+                                    ">
+                                        {stage.title}
+                                    </h4>
+                                    
                                     <span className="
                                         md:text-[17px]
                                         2xl:text-lg
-                                    ">{stage.descr}</span>
+                                    ">
+                                        {stage.descr}
+                                    </span>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
-        </section>      
+        </motion.section>      
     )
 }
