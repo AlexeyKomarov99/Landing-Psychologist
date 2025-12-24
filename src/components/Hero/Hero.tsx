@@ -139,7 +139,6 @@ export default function Hero() {
                                     2xl:max-w-[440px] 2xl:max-h-[800px]
                                 "
                                 style={{ width: 'auto', height: 'auto' }}
-
                             />
                         </div>
                     </div>

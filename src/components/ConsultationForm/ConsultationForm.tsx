@@ -35,8 +35,20 @@ export default function ConsultationForm() {
         console.log('Данные формы:', data)
         
         try {
-            // Отправка на сервер...
-            // await fetch('/api/send-form', { ... })
+            // Отправляем на наш API endpoint
+            const response = await fetch('/api/telegram', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+
+            const result = await response.json()
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Ошибка отправки')
+            }
+
+            console.log('✅ Успех:', result)
             
             // После успешной отправки:
             reset()

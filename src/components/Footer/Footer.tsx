@@ -38,12 +38,17 @@ export default function Footer() {
     const aboutInfo : AboutInfo[] = [
         {
             id: 1,
-            label: 'PileusMoscow@yandex.ru',
+            label: 'epileus55@gmail.com',
             icon: <MailIcon className='w-6 h-6'/>
         },
+        // {
+        //     id: 2,
+        //     label: '+7 (800) 555-35-35',
+        //     icon: <PhoneIcon className='w-6 h-6'/>
+        // },
         {
             id: 2,
-            label: '+7 (800) 555-35-35',
+            label: '@EPileus (telegram)',
             icon: <PhoneIcon className='w-6 h-6'/>
         }
     ]
