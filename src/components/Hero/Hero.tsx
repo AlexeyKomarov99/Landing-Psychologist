@@ -64,6 +64,7 @@ export default function Hero() {
                                 xl:text-[42px] xl:max-w-[600px] xl:mt-42
                                 2xl:text-[50px] 2xl:max-w-[680px] 2xl:mt-50
                                 3xl:text-[54px]
+                                border
                             '>Ваш внутренний стержень — ваша главная опора</h1>
                             <span className='
                                 hidden
