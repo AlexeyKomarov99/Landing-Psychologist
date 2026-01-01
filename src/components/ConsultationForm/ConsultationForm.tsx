@@ -99,6 +99,7 @@ export default function ConsultationForm() {
                     lg:max-w-[960px]
                     xl:max-w-[1140px]
                     2xl:max-w-[1320px]
+                    3xl:max-w-[1600px]
                 ">
                     <div className="
                         flex
@@ -120,10 +121,11 @@ export default function ConsultationForm() {
                             <motion.h2 
                                 variants={fadeInTop}
                                 className="
-                                    text-[26px]
+                                    text-[clamp(24px,5vw,26px)]
+                                    text-center
                                     mb-10
                                     md:mb-12 md:text-[32px]
-                                    lg:text-[38px]
+                                    lg:text-[clamp(34px,4vw,38px)]
                                 "
                             >
                                 Начните меняться уже сегодня!
@@ -133,6 +135,9 @@ export default function ConsultationForm() {
                                 variants={fadeInLeft}
                                 className="
                                     text-center
+                                    text-[clamp(14px,3.5vw,16px)]
+                                    md:text-[clamp(15px,3vw,17px)]
+                                    lg:text-[clamp(16px,2.5vw,18px)]
                                 "
                             >
                                 Запишитесь на вводную консультацию. Мы исследуем ваш запрос, и вы получите ясный план развития вашего личного потенциала.
@@ -168,7 +173,7 @@ export default function ConsultationForm() {
                                 >
                                     <label className="
                                         block 
-                                        text-sm 
+                                        text-[clamp(14px,3vw,16px)] 
                                         font-medium
                                         text-(--color-title)
                                         mb-2
@@ -179,8 +184,8 @@ export default function ConsultationForm() {
                                         {...register('name')}
                                         className="
                                             w-full 
-                                            px-4 
-                                            py-3 
+                                            px-[clamp(12px,3vw,16px)] 
+                                            py-[clamp(8px,2.5vw,12px)] 
                                             border 
                                             border-gray-300 
                                             rounded-lg 
@@ -189,13 +194,15 @@ export default function ConsultationForm() {
                                             focus:border-transparent 
                                             outline-none 
                                             transition
-                                            cursor-pointer"
+                                            cursor-pointer
+                                            placeholder:text-[clamp(14px,3vw,16px)]
+                                        "
                                         placeholder="Иван Иванов"
                                     />
                                     {errors.name && (
                                         <p className="
                                             mt-1 
-                                            text-sm 
+                                            text-[clamp(12px,2.5vw,14px)] 
                                             text-red-600
                                         ">{errors.name.message}</p>
                                     )}
@@ -209,7 +216,7 @@ export default function ConsultationForm() {
                                 >
                                     <label className="
                                         block 
-                                        text-sm 
+                                        text-[clamp(14px,3vw,16px)] 
                                         font-medium 
                                         text-(--color-title) 
                                         mb-2">
@@ -227,8 +234,8 @@ export default function ConsultationForm() {
                                         placeholder="+7 (___) ___-__-__"
                                         className="
                                             w-full 
-                                            px-4 
-                                            py-3 
+                                            px-[clamp(12px,3vw,16px)] 
+                                            py-[clamp(8px,2.5vw,12px)]
                                             border 
                                             border-gray-300 
                                             rounded-lg 
@@ -239,10 +246,14 @@ export default function ConsultationForm() {
                                             transition 
                                             font-mono
                                             cursor-pointer
+                                            placeholder:text-[clamp(14px,3vw,16px)]
                                         "
                                     />
                                     {errors.phone && phoneInput.length > 0 && (
-                                        <p className="mt-1 text-sm text-red-600">{errors.phone.message}</p>
+                                        <p className="
+                                            mt-1 
+                                            text-[clamp(12px,2.5vw,14px)] 
+                                            text-red-600">{errors.phone.message}</p>
                                     )}
                                 </motion.div>
 

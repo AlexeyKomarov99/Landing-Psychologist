@@ -87,6 +87,7 @@ export default function Directions() {
                 lg:max-w-[960px]
                 xl:max-w-[1140px]
                 2xl:max-w-[1320px]
+                3xl:max-w-[1600px]
             ">
                 <div className="
                     flex

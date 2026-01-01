@@ -35,9 +35,9 @@ export default function Header() {
             fixed 
             top-0 
             left-0 
-            right-0 
             z-50 
             bg-(--color-bg-dark)
+            w-full
             '>
             <div className='
                 max-w-7xl 
@@ -50,7 +50,14 @@ export default function Header() {
                 2xl:max-w-[1320px] 
                 3xl:max-w-[1600px]'
             >
-                <div className='flex justify-between items-center h-[60px] md:h-[70px] xl:h-20'>
+                <div className='
+                    flex 
+                    justify-between 
+                    items-center 
+                    h-[60px] 
+                    md:h-[70px] 
+                    xl:h-20    
+                '>
 
                     {/* Логотип */}
                     <a
@@ -65,26 +72,34 @@ export default function Header() {
                             alt='Главная иконка'
                         />
                         <span className='
-                            text-white 
-                            font-semibold
-                            text-[15px]
-                            sm:text-base
-                            md:inline md:text-[17px]
-                            lg:text-lg
+                            text-white font-semibold
+                            text-[clamp(14px,4vw,16px)]
+                            sm:text-[clamp(15px,3.5vw,17px)]
+                            md:text-[clamp(16px,3vw,18px)]
+                            lg:text-[19px]
                         '>«Опора»</span>
                     </a>
                     
                     {/* Десктопная навигация */}
                     <nav className='
                         hidden
-                        md:flex md:text-[13px] md:space-x-3
-                        lg:space-x-9
+                        md:flex 
+                        md:text-[clamp(12px,1.2vw,14px)]
+                        md:space-x-[clamp(8px,1.5vw,16px)]
+                        lg:space-x-[clamp(16px,2vw,36px)]
+                        lg:text-[clamp(14px,1.5vw,16px)]
                     '>
                         {navLinks.map((link) => (
                             <a
                                 key={link.id}
                                 href={link.href}
-                                className='text-white hover:text-[#C4A484] transition-colors duration-300 font-medium lg:text-sm'
+                                className='
+                                    text-white 
+                                    hover:text-[#C4A484] 
+                                    transition-colors 
+                                    duration-300 
+                                    font-medium
+                                '
                             >
                                 {link.label}
                             </a>
@@ -96,14 +111,24 @@ export default function Header() {
                         href='#consultation' 
                         className="
                             hidden 
-                            md:flex md:items-center md:space-x-2 md:text-sm md:px-3 md:py-2
-                            lg:text-sm lg:px-5 lg:py-3
                             btn
                             hover:brightness-90!
                             duration-300
+                            md:flex 
+                            md:items-center 
+                            md:space-x-2 
+                            md:text-[clamp(12px,1.1vw,14px)]
+                            md:px-[clamp(12px,2vw,20px)]
+                            md:py-[clamp(6px,1.5vh,10px)]
+                            lg:px-[clamp(16px,2.5vw,24px)]
+                            lg:py-[clamp(8px,1.8vh,12px)]
                     ">
                         <span>Записаться</span>
-                        <PhoneIcon className='w-5 h-5 lg:w-4 lg:h-4 md:w-3.5 md:h-3.5' />
+                        <PhoneIcon className='
+                            w-[clamp(14px,3vw,16px)]
+                            h-[clamp(14px,3vw,16px)]
+                            lg:w-4 lg:h-4
+                        ' />
                     </a>
                     
                     {/* Кнопка бургера */}
@@ -131,7 +156,11 @@ export default function Header() {
                     ease-in-out 
                     ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}
                 `}>
-                <div className='flex flex-col justify-center items-center min-h-screen p-8'>
+                <div className='
+                    flex flex-col justify-center items-center 
+                    min-h-screen 
+                    p-8
+                '>
 
                     {/* Кнопка закрытия */}
                     <button
@@ -145,7 +174,13 @@ export default function Header() {
                             cursor-pointer
                         "
                     >
-                        <CrossIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <CrossIcon className="
+                            w-[clamp(20px,5vw,24px)]
+                            h-[clamp(20px,5vw,24px)]
+                            sm:w-[clamp(24px,5vw,28px)]
+                            sm:h-[clamp(24px,5vw,28px)]
+                        " 
+                        />
                     </button>
 
                     {/* Навигация */}
@@ -154,7 +189,7 @@ export default function Header() {
                         flex-col 
                         items-center 
                         justify-start 
-                        space-y-4 
+                        space-y-[clamp(16px,3vh,20px)]
                         w-full
                     '>
                         {navLinks.map((link) => (
@@ -164,13 +199,13 @@ export default function Header() {
                                 onClick={closeMobileMenu}
                                 className='
                                     text-white 
-                                    text-base
+                                    text-[clamp(18px,4.5vw,22px)]
                                     hover:text-[#C4A484] 
                                     transition-colors 
                                     duration-300 
                                     font-medium 
                                     py-2
-                                    sm:text-lg
+                                    sm:text-[clamp(20px,4vw,24px)]
                                 '
                             >
                                 {link.label}
@@ -183,24 +218,30 @@ export default function Header() {
                         href='#consultation'
                         onClick={closeMobileMenu}
                         className='
-                            mt-12
+                            mt-[clamp(32px,8vh,48px)]
                             flex 
                             items-center 
                             gap-2
                             bg-[#C4A484] 
                             text-white 
-                            px-8 
-                            py-3 
+                            px-[clamp(24px,10vw,40px)]
+                            py-[clamp(12px,3vh,16px)]
                             rounded-lg 
                             hover:brightness-90!
                             transition-all 
                             duration-300 
-                            text-base
-                            sm:text-xl sm:px-10 sm:py-4 sm:mt-16
+                            text-[clamp(16px,4vw,18px)]
+                            sm:text-[clamp(18px,3.5vw,20px)]
+                            sm:mt-[clamp(48px,8vh,64px)]
                         '
                     >
                         <span>Записаться</span>
-                        <PhoneIcon className='w-4 h-4 sm:w-5 sm:h-5' />
+                        <PhoneIcon className='
+                            w-[clamp(16px,4vw,18px)]
+                            h-[clamp(16px,4vw,18px)] 
+                            sm:w-5 
+                            sm:h-5
+                        ' />
                     </a>
 
                 </div>

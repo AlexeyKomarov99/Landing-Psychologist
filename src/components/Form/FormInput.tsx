@@ -30,7 +30,7 @@ export default function FormInput({
           }`}
       />
       {error && (
-        <p className="text-sm text-red-600">{error.message}</p>
+        <p className="text-[clamp(12px,2.5vw,14px)] text-red-600">{error.message}</p>
       )}
     </div>
   )

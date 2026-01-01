@@ -65,6 +65,7 @@ export default function About() {
                     lg:max-w-[960px]
                     xl:max-w-[1140px]
                     2xl:max-w-[1320px]
+                    3xl:max-w-[1600px]
                 ">
                     <div className="
                         flex
@@ -86,14 +87,15 @@ export default function About() {
                             "
                         >
                             <h2 className='
-                                text-[26px]
+                                text-[clamp(24px,5vw,28px)]
                                 text-center
                                 mb-[34px]
-                                sm:text-[32px] sm:mb-7
+                                sm:text-[clamp(26px,4.5vw,32px)]
+                                sm:mb-7
                                 lg:hidden
                             '>Соберите свою ментальную опору по кирпичику</h2>
-                            <Image 
-                                src={'/images/about_hero.JPG'}
+                            <Image
+                                src={'/images/about_hero.jpg'}
                                 alt='Психолог Москва'
                                 width={420}
                                 height={580}
@@ -101,7 +103,7 @@ export default function About() {
                                 quality={100}
                                 className='
                                     rounded-2xl
-                                    mb-4
+                                    mb-[clamp(16px,3vh,24px)]
                                     max-w-[260px] max-h-[360px]
                                     sm:max-w-[290px] sm:max-h-[440px]
                                     md:max-w-[340px] md:max-h-[460px] md:mb-6
@@ -122,27 +124,30 @@ export default function About() {
                         ">
                             <h2 className='
                                 hidden
-                                text-[36px]
-                                mb-6
+                                text-[clamp(32px,3vw,36px)]
+                                mb-[clamp(24px,5vh,28px)]
                                 lg:block lg:text-[38px]
                             '>Соберите свою ментальную опору по кирпичику</h2>
                             <h4 className='
-                                text-[18px]
                                 text-center
                                 font-semibold
-                                mb-2.5
+                                text-[clamp(16px,4vw,18px)]
+                                mb-[clamp(8px,2vh,10px)]
                                 sm:text-[20px]
-                                lg:text-[21px]
+                                lg:text-[clamp(20px,2.5vw,22px)]
                             '>Евгений Пилеус</h4>
                             <span className='
                                 text-center
-                                mb-7
+                                mb-[clamp(22px,7vh,28px)]
                                 leading-[1.4]
-                                text-[15px]
-                                sm:text-base
-                                md:mb-12
-                                lg:text-start lg:mb-24 lg:text-[17px]
-                                2xl:text-lg 2xl:mb-32
+                                text-[16px]
+                                sm:text-[clamp(15px,3vw,17px)]
+                                md:mb-[clamp(40px,5vw,48px)]
+                                lg:text-start 
+                                lg:mb-[clamp(80px,6vw,96px)]
+                                lg:text-[clamp(16px,2vw,18px)]
+                                2xl:text-[clamp(17px,1.8vw,19px)]
+                                2xl:mb-[clamp(104px,7vw,128px)]
                             '>
                                 Мы рождаемся, не зная правил работы собственного сознания. Жизненный опыт формирует нас, но часто не оставляет в руках нужных инструментов для решения сложных задач. Я помогаю не просто «решить проблему», а исследовать архитектуру вашего мышления, чтобы вы смогли самостоятельно выстраивать свою жизнь — осознанно, гибко и устойчиво. Ваша психика — ваш главный ресурс. Научимся им пользоваться.»
                             </span>
@@ -150,10 +155,14 @@ export default function About() {
                                 variants={staggerContainer}
                                 initial="hidden"
                                 whileInView="visible"
-                                viewport={{ once: true }} 
+                                viewport={{ once: true }}
                                 className="
-                                    space-y-8
-                                    sm:grid sm:grid-cols-3 sm:space-y-0 sm:gap-8 sm:items-start
+                                    space-y-[clamp(24px,5vh,32px)]
+                                    sm:grid 
+                                    sm:grid-cols-3 
+                                    sm:space-y-0 
+                                    sm:gap-[clamp(24px,3vw,32px)] 
+                                    sm:items-start
                                     lg:gap-12
                             ">
                                 {stats.map((stat) => (
@@ -183,15 +192,16 @@ export default function About() {
                                             '>
                                                 <span className='
                                                     text-(--color-primary)
-                                                    text-base
+                                                    text-[clamp(16px,3.5vw,18px)]
                                                     mr-1.5
                                                     font-semibold
-                                                    sm:text-lg
+                                                    sm:text-[clamp(18px,2.75vw,20px)]
                                                     lg:text-[19px]
                                                 '>{stat.value}</span>
                                                 <span className='
                                                     leading-none
-                                                    sm:text-lg
+                                                    text-[clamp(16px,3.5vw,18px)]
+                                                    sm:text-[clamp(18px,2.75vw,20px)]
                                                     lg:text-[19px]
                                                 '>{stat.label}</span>
                                             </div>

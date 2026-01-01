@@ -24,11 +24,15 @@ export default function Hero() {
 
             {/* Внутренний контент */}
             <div className="relative z-30 w-full">
+
+                {/* Контейнер */}
                 <div className="
                     max-w-7xl
                     mx-auto
-                    min-h-[80vh]
-                    sm:min-h-[90vh] sm:max-w-[540px]
+                    px-4
+                    min-h-screen
+                    sm:max-w-[540px]
+                    md:max-w-[720px]
                     md:min-h-screen
                     lg:max-w-[960px]
                     xl:max-w-[1140px]
@@ -50,64 +54,90 @@ export default function Hero() {
                             sm:m-0
                             lg:justify-start lg:items-start
                         ">
+                            {/* Титул */}
                             <h1 className='
-                                mt-90
-                                text-[26px]
                                 text-center
                                 text-white!
                                 font-semibold
                                 leading-[1.2]
-                                max-w-[450px]
-                                sm:text-[30px] sm:text-center sm:max-w-[520px] sm:mt-110
-                                md:text-[32px] md:mt-120
-                                lg:text-[38px] lg:max-w-[520px] lg:mt-40 lg:text-start
-                                xl:text-[42px] xl:max-w-[600px] xl:mt-42
+                                max-w-[93%]
+                                mt-[clamp(40vh,50vh,60vh)]
+                                text-[clamp(22px,5vw,30px)]
+                                sm:text-[clamp(30px,5vw,36px)] 
+                                sm:text-center 
+                                sm:max-w-[95%]
+                                md:text-[clamp(36px,5vw,50px)] 
+                                md:mt-[clamp(40vh,50vh,60vh)]
+                                md:max-w-[98%]
+                                lg:max-w-[625px]
+                                lg:mt-[15vh]
+                                lg:text-start
+                                xl:text-[clamp(46px, 5vw, 52px)] 
+                                xl:max-w-[750px]
+                                xl:mt-[20vh]
                                 2xl:text-[50px] 2xl:max-w-[680px] 2xl:mt-50
                                 3xl:text-[54px]
-                                border
                             '>Ваш внутренний стержень — ваша главная опора</h1>
+
+                            {/* Описание 1 */}
                             <span className='
                                 hidden
                                 text-lg
                                 text-white!
                                 font-normal
                                 leading-[1.4]
-                                lg:block lg:max-w-[480px] lg:mt-64
-                                xl:max-w-[520px] xl:mt-56
+                                lg:block
+                                lg:text-[clamp(18px,1.5vw,20px)]
+                                lg:max-w-[clamp(450px,40vw,480px)]
+                                lg:mt-[7vh]
+                                xl:max-w-[550px]
+                                xl:text-[clamp(19px,1.4vw,22px)]
+                                xl:mt-[25vh]
                                 2xl:max-w-[560px] 2xl:mt-14
                             '>Сообщество и психологическая практика «Опора» помогают развить внутренний стержень и научиться справляться с любыми жизненными вызовами через ментальную реструктуризацию.</span>
+                            
+                            {/* Описание 2 */}
                             <span className='
                                 hidden
                                 text-lg
                                 text-white!
                                 font-normal
                                 leading-[1.4]
-                                lg:block lg:mt-2
+                                lg:block
+                                lg:text-[clamp(18px,1.5vw,20px)]
+                                lg:mt-[2vh]
+                                xl:text-[clamp(19px,1.4vw,22px)]
                                 2xl:mt-3
                             '>Адаптируйтесь, меняйтесь, улучшайтесь!</span>
 
+                            {/* Кнопка */}
                             <a
                                 href='#consultation'
                                 className='
                                     btn
                                     text-center
-                                    mt-28
-                                    px-20 
-                                    py-4 
                                     flex
                                     items-center
-                                    space-x-3 
+                                    space-x-2
                                     hover:brightness-90!
                                     duration-300
-                                    text-base
-                                    sm:mt-[140px] sm:text-lg
-                                    md:px-20 md:py-3 md:mt-44
-                                    lg:mt-10
-                                    xl:mt-16
-                                    2xl:mt-52 2xl:px-20 2xl:py-4
+                                    text-[clamp(16px,4vw,18px)]
+                                    mt-[clamp(10vh,20vh,25vh)]
+                                    px-[clamp(24px,12vw,48px)]
+                                    py-[clamp(8px,2vh,12px)]
+                                    sm:text-[clamp(18px,4vw,20px)]
+                                    md:text-[clamp(18px,2.5vw,22px)]
+                                    md:mt-[clamp(12vh,18vh,22vh)]
+                                    md:px-[clamp(40px,8vw,80px)]
+                                    md:py-[clamp(12px,3vh,16px)]
+                                    lg:mt-[30vh]
+                                    xl:mt-[10vh]
+                                    2xl:mt-[30vh]
+                                    2xl:px-[clamp(80px,6vw,100px)]
+                                    2xl:py-[clamp(16px,2.5vh,20px)]
                             '>
                                 <span>Записаться</span>
-                                <PhoneIcon className='w-5 h-5' />
+                                <PhoneIcon className='w-[clamp(16px,4vw,20px)] h-[clamp(16px,4vw,20px)]' />
                             </a>
                         </div>
 
@@ -121,25 +151,45 @@ export default function Hero() {
                             flex
                             justify-center
                             lg:flex lg:justify-end lg:mr-20 lg:items-center
-                            xl:mr-28
-                            2xl:mr-60
+                            xl:mr-[clamp(80px,7vw,110px)]
+                            2xl:mr-[clamp(170px,11vw,240px)]
                         ">
                             <Image 
                                 src={'/images/banner_hero.avif'}
                                 alt='Московский психолог'
-                                width={440}
-                                height={800}
+                                width={440}  // Максимальная ширина (для 2xl)
+                                height={800} // Максимальная высота (для 2xl)
                                 priority={true}
                                 quality={100}
                                 className="
-                                    max-w-[300px] max-h-[540px]
-                                    sm:max-w-[380px] sm:max-h-[700px]
-                                    md:max-w-[415px] md:max-h-[760px]
-                                    lg:max-w-[400px] lg:max-h-[720px]
-                                    xl:max-w-[415px] xl:max-h-[780px]
-                                    2xl:max-w-[440px] 2xl:max-h-[800px]
+                                    /* Мобильные (320px-640px) */
+                                    w-full
+                                    h-[clamp(420px,85vh,900px)]
+                                    max-w-none
+                                    object-contain object-bottom
+                                    
+                                    /* sm (≥640px) */
+                                    sm:max-w-[445px]
+                                    sm:max-h-[790px]
+                                    
+                                    /* md (≥768px) */
+                                    md:max-w-[550px]
+                                    md:max-h-none
+                                    md:h-[clamp(800px,85vh,1100px)]
+                                    
+                                    /* lg (≥1024px) и больше */
+                                    lg:max-w-[475px]
+                                    lg:h-[clamp(800px,85vh,1100px)]
+                                    
+                                    /* xl (≥1280px) */
+                                    xl:max-w-[clamp(490px,30vw,520px)]
+                                    xl:h-[clamp(800px,82vh,1000px)]
+                                    
+                                    /* 2xl (≥1536px)*/
+                                    2xl:max-w-[clamp(510px,30vw,530px)]
+                                    2xl:h-[clamp(850px,82vh,1000px)]
                                 "
-                                style={{ width: 'auto', height: 'auto' }}
+                                sizes="(max-width: 640px) 100vw, (max-width: 768px) 380px, (max-width: 1024px) 415px, 440px"
                             />
                         </div>
                     </div>
