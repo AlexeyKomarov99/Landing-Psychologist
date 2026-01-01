@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     title: 'Пилеус | Профессиональный психолог',
     description: 'Помощь при тревоге, выгорании, панических атаках. 15+ лет практики.',
   },
+  icons: {
+    icon: '/icons/label.png',
+    shortcut: '/icons/label.png',
+    apple: '/icons/label.png',
+  },
 }
 
 // Объявляем тип для пропсов компонента

@@ -17,6 +17,7 @@ interface AboutInfo {
     id: number
     label: string
     icon: React.ReactNode
+    href?: string
 }
 
 interface SocialNetworkIcon {
@@ -39,7 +40,8 @@ export default function Footer() {
         {
             id: 1,
             label: 'epileus55@gmail.com',
-            icon: <MailIcon className='w-6 h-6'/>
+            icon: <MailIcon className='w-6 h-6'/>,
+            href: 'mailto:epileus55@gmail.com'
         },
         // {
         //     id: 2,
@@ -48,8 +50,9 @@ export default function Footer() {
         // },
         {
             id: 2,
-            label: '@EPileus (telegram)',
-            icon: <PhoneIcon className='w-6 h-6'/>
+            label: '@EPileus',
+            icon: <PhoneIcon className='w-6 h-6'/>,
+            href: 'https://t.me/EPileus'
         }
     ]
 
@@ -217,24 +220,16 @@ export default function Footer() {
                                 gap-2
                             ">
                             {aboutInfo.map((info) => (
-                                    <div
+                                    <a 
                                         key={info.id}
-                                        className='
-                                            flex
-                                            flex-row
-                                            justify-start
-                                            items-center
-                                        '
+                                        href={info.href || '#'}
+                                        target={info.href?.startsWith('http') ? "_blank" : undefined}
+                                        rel={info.href?.startsWith('http') ? "noopener noreferrer" : undefined}
+                                        className='flex flex-row justify-start items-center hover:text-[#C4A484] transition-colors duration-300'
                                     >
-                                        <span className='
-                                            mr-3
-                                            text-[#C4A484]
-                                        '>{info.icon}</span>
-                                        <span className='
-                                            text-white!
-                                            opacity-65
-                                        '>{info.label}</span>
-                                    </div>
+                                        <span className='mr-3 text-[#C4A484]'>{info.icon}</span>
+                                        <span className='text-white! opacity-65'>{info.label}</span>
+                                    </a>
                             ))}
                             </div>
                         </div>

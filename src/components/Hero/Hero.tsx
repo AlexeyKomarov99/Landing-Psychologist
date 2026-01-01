@@ -133,8 +133,8 @@ export default function Hero() {
                                     lg:mt-[30vh]
                                     xl:mt-[10vh]
                                     2xl:mt-[30vh]
-                                    2xl:px-[clamp(80px,6vw,100px)]
-                                    2xl:py-[clamp(16px,2.5vh,20px)]
+                                    2xl:px-[clamp(70px,6vw,80px)]
+                                    2xl:py-[clamp(12px,2.5vh,16px)]
                             '>
                                 <span>Записаться</span>
                                 <PhoneIcon className='w-[clamp(16px,4vw,20px)] h-[clamp(16px,4vw,20px)]' />
