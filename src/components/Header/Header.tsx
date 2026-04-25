@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { FiX as CrossIcon } from 'react-icons/fi'
 import { FaPhoneAlt as PhoneIcon  } from "react-icons/fa";
 import { RxHamburgerMenu as BurgerIcon } from "react-icons/rx";
+import AnchorLink from '@/components/AnchorLink/AnchorLink'
 
 interface NavLink {
     id: number,
@@ -60,7 +61,7 @@ export default function Header() {
                 '>
 
                     {/* Логотип */}
-                    <a
+                    <AnchorLink
                         href='#hero' 
                         className='
                             flex 
@@ -78,7 +79,7 @@ export default function Header() {
                             md:text-[clamp(16px,3vw,18px)]
                             lg:text-[19px]
                         '>«Опора»</span>
-                    </a>
+                    </AnchorLink>
                     
                     {/* Десктопная навигация */}
                     <nav className='
@@ -90,7 +91,7 @@ export default function Header() {
                         lg:text-[clamp(14px,1.5vw,16px)]
                     '>
                         {navLinks.map((link) => (
-                            <a
+                            <AnchorLink
                                 key={link.id}
                                 href={link.href}
                                 className='
@@ -102,12 +103,12 @@ export default function Header() {
                                 '
                             >
                                 {link.label}
-                            </a>
+                            </AnchorLink>
                         ))}
                     </nav>
                     
                     {/* Десктопная кнопка */}
-                    <a
+                    <AnchorLink
                         href='#consultation' 
                         className="
                             hidden 
@@ -129,7 +130,7 @@ export default function Header() {
                             h-[clamp(14px,3vw,16px)]
                             lg:w-4 lg:h-4
                         ' />
-                    </a>
+                    </AnchorLink>
                     
                     {/* Кнопка бургера */}
                     <button
@@ -193,7 +194,7 @@ export default function Header() {
                         w-full
                     '>
                         {navLinks.map((link) => (
-                            <a
+                            <AnchorLink
                                 key={link.id}
                                 href={link.href}
                                 onClick={closeMobileMenu}
@@ -209,12 +210,12 @@ export default function Header() {
                                 '
                             >
                                 {link.label}
-                            </a>
+                            </AnchorLink>
                         ))}
                     </nav>
 
                     {/* Кнопка в мобильном меню */}
-                    <a
+                    <AnchorLink
                         href='#consultation'
                         onClick={closeMobileMenu}
                         className='
@@ -242,7 +243,7 @@ export default function Header() {
                             sm:w-5 
                             sm:h-5
                         ' />
-                    </a>
+                    </AnchorLink>
 
                 </div>
             </div>

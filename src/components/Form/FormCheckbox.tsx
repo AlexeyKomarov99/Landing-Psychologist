@@ -4,7 +4,7 @@ import { InputHTMLAttributes } from 'react'
 import { FieldError } from 'react-hook-form'
 
 interface FormCheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
-  label: string
+  label: string | React.ReactNode
   error?: FieldError
   register: any
 }

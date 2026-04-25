@@ -264,9 +264,16 @@ export default function ConsultationForm() {
                                     className="mb-8"
                                 >
                                     <FormCheckbox
-                                        label="Я соглашаюсь на обработку моих персональных данных в соответствии с политикой конфиденциальности"
-                                        register={register('agreement')}
-                                        error={errors.agreement}
+                                    label={
+                                        <>
+                                        Я соглашаюсь на обработку моих персональных данных в соответствии с{' '}
+                                        <a href="/privacy-policy" target="_blank" className="text-(--color-primary) underline hover:brightness-90 transition-colors">
+                                            политикой конфиденциальности
+                                        </a>
+                                        </>
+                                    }
+                                    register={register('agreement')}
+                                    error={errors.agreement}
                                     />
                                 </motion.div>
 

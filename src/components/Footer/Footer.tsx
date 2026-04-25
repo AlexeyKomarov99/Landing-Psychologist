@@ -6,6 +6,8 @@ import { FiPhone as PhoneIcon } from "react-icons/fi"
 import { RiVkLine as VKIcon } from "react-icons/ri"
 import { RiTelegramLine as TelegramIcon } from "react-icons/ri"
 import { IoLogoInstagram as InstagramIcon } from "react-icons/io5"
+import AnchorLink from '@/components/AnchorLink/AnchorLink'
+import Link from 'next/link'
 
 interface NavLink {
     id: number,
@@ -117,7 +119,7 @@ export default function Footer() {
                             flex
                             flex-col
                         ">
-                            <a
+                            <AnchorLink
                                 href='#hero'
                                 className="
                                     flex
@@ -142,7 +144,7 @@ export default function Footer() {
                                 '>
                                     Опора
                                 </h4>
-                            </a>
+                            </AnchorLink>
                             <span className='
                                 text-white!
                                 opacity-65
@@ -174,7 +176,7 @@ export default function Footer() {
                                 gap-2
                             ">
                                 {navLinks.map((link) => (
-                                    <a
+                                    <AnchorLink
                                         key={link.id}
                                         href={link.href}
                                         className='
@@ -185,8 +187,14 @@ export default function Footer() {
                                             duration-300
                                     '>
                                         {link.label}
-                                    </a>
+                                    </AnchorLink>
                                 ))}
+                                <Link
+                                href="/privacy-policy"
+                                className='text-white! opacity-65 hover:text-[#C4A484]! transition-colors duration-300'
+                                >
+                                    Политика конфиденциальности
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -279,7 +287,7 @@ export default function Footer() {
                     text-center
                     text-[15px]
                 ">
-                    © 2025 “Московский психолог - Пилеус”. Все права защищены
+                    © {new Date().getFullYear()} “Московский психолог - Пилеус”. Все права защищены
                 </div>
             </div>
         </footer>
