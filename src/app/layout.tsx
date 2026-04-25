@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Lora, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
+import YandexMetrika from '@/components/YandexMetrika/YandexMetrika'
 
 // Настраиваем шрифты через next/font (оптимизация)
 const lora = Lora({ 
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="ru" className={`${lora.variable} ${sourceSerif4.variable}`}>
       <body>
         {children}
+        <YandexMetrika />
       </body>
     </html>
   )
