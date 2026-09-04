@@ -166,6 +166,14 @@ export default function ConsultationForm() {
                                     lg:p-10
                                 "
                             >
+                                {/*
+                                    ym-disable-keys — служебный класс Яндекс.Метрики:
+                                    Вебвизор пишет сессию, но не сохраняет то, что вводят
+                                    в поле. Имя и телефон — персональные данные, им незачем
+                                    попадать в записи стороннего сервиса (см. п. 8.10
+                                    политики конфиденциальности).
+                                */}
+
                                 {/* Имя и фамилия */}
                                 <motion.div 
                                     variants={fadeInLeft}
@@ -183,6 +191,7 @@ export default function ConsultationForm() {
                                     <input
                                         {...register('name')}
                                         className="
+                                            ym-disable-keys
                                             w-full 
                                             px-[clamp(12px,3vw,16px)] 
                                             py-[clamp(8px,2.5vw,12px)] 
@@ -233,6 +242,7 @@ export default function ConsultationForm() {
                                         }}
                                         placeholder="+7 (___) ___-__-__"
                                         className="
+                                            ym-disable-keys
                                             w-full 
                                             px-[clamp(12px,3vw,16px)] 
                                             py-[clamp(8px,2.5vw,12px)]

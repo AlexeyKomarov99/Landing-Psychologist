@@ -3,6 +3,7 @@ import { Lora, Source_Serif_4 } from 'next/font/google'
 import './globals.css'
 import YandexMetrika from '@/components/YandexMetrika/YandexMetrika'
 import GoogleAnalytics from '@/components/GoogleAnalytics/GoogleAnalytics'
+import CookieBanner from '@/components/CookieBanner/CookieBannerClient'
 
 // Настраиваем шрифты через next/font (оптимизация)
 const lora = Lora({ 
@@ -176,6 +177,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       </head>
       <body className="font-sans antialiased">
         {children}
+        <CookieBanner />
         <YandexMetrika />
         <GoogleAnalytics />
       </body>
