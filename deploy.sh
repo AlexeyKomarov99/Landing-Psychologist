@@ -1,13 +1,39 @@
-#!/bin/bash
-MESSAGE=${1:-"Внесение правок в проект"}
+#!/usr/bin/env bash
+#
+# Публикация изменений.
+#
+#   ./deploy.sh                    # с сообщением по умолчанию
+#   ./deploy.sh "Правки в форме"   # со своим сообщением
+#
+# Раньше скрипт собирал проект на ноутбуке и заливал .next и public
+# через scp. Теперь сборка идёт на сервере: сюда уезжает только коммит,
+# а VPS сам забирает его из GitHub и пересобирает у себя (update.sh).
+# Так на сервере не может оказаться сборка от одного кода и исходники
+# от другого — состояние всегда одно и то же, и его видно в git.
 
-echo "🚀 Обновление репозитория Github"
+set -euo pipefail
+
+SERVER="aleks27@82.202.128.143"
+APP_DIR="~/Landing-Psychologist"
+MESSAGE="${1:-Внесение правок в проект}"
+
+cd "$(dirname "$0")"
+
+echo "🚀 Отправляем изменения в GitHub"
 git add .
-git commit -m "$MESSAGE"
+# Коммитить нечего — это норма: можно просто перевыкатить то, что уже в main.
+if git diff --cached --quiet; then
+  echo "   изменений нет, коммит не нужен"
+else
+  git commit -m "$MESSAGE"
+fi
 git push origin main
 
-echo "📦 Сборка проекта и деплой на VPS"
-npm run build && \
-scp -r .next public aleks27@82.202.128.143:/home/aleks27/Landing-Psychologist/ && \
-ssh aleks27@82.202.128.143 "pm2 restart landing" && \
+echo
+echo "📦 Обновляем сервер (сборка идёт там, это несколько минут)"
+# -t выделяет псевдотерминал: вывод сборки идёт живьём, а не сваливается
+# одним куском в конце, и sudo внутри скрипта может спросить пароль.
+ssh -t "$SERVER" "$APP_DIR/update.sh"
+
+echo
 echo "✅ Готово: https://epileus.ru"
